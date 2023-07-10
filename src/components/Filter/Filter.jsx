@@ -10,7 +10,7 @@ export const Filter = () => {
   };
 
   return (
-    <form className="mb-4 flex justify-center items-center mx-auto flex-col max-w-sm">
+    <div className="mb-4 flex justify-center items-center mx-auto flex-col max-w-sm">
       <label className="block mb-2 font-bold self-start" htmlFor="filter">
         Find contacts by name
       </label>
@@ -21,6 +21,6 @@ export const Filter = () => {
         onChange={handleFilter}
         value={filter}
       />
-    </form>
+    </div>
   );
 };
