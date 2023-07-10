@@ -15,9 +15,9 @@ const ContactsList = () => {
     const visibleContacts = getVisibleContact();
     return (
         <div>
-            <ul className="divide-y divide-gray-200 flex justify-center">
+            <ul className="divide-y divide-gray-200 flex justify-center gap-3">
                 {visibleContacts.map(contact => (
-                    <li key={contact.id} className="py-4 self-start">
+                    <li key={contact.id} className="py-4">
                         <span className="text-lg font-semibold">{contact.name}</span>
                         <span className="text-gray-500"> : {contact.number}</span>
                         <button
