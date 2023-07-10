@@ -19,14 +19,14 @@ export const ContactForm = () => {
         return contacts.find(contact => contact.name === name);
     };
 
-    const handleSubmitaddContact = e => {
+    const handleSubmit = e => {
         e.preventDefault();
         if (checkName(contact.name)) {
             setContact({
                 name: '',
                 number: '',
             });
-            alert('Такий контакт існує...');
+            alert('Такий контакт вже існує...');
 
             return;
         }
@@ -41,12 +41,16 @@ export const ContactForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmitaddContact}>
-            <label>
-                Name
+        <form onSubmit={handleSubmit} className="max-w-sm mx-auto mt-8">
+            <div className="mb-4">
+                <label htmlFor="name" className="block mb-2 font-bold">
+                    Name
+                </label>
                 <input
                     type="text"
+                    id="name"
                     name="name"
+                    className="w-full px-4 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
                     pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                     required
@@ -54,13 +58,16 @@ export const ContactForm = () => {
                     value={contact.name}
                     onChange={handleChange}
                 />
-            </label>
-            <label>
-                Phone
+            </div>
+            <div className="mb-4">
+                <label htmlFor="number" className="block mb-2 font-bold">
+                    Phone
+                </label>
                 <input
-
                     type="tel"
+                    id="number"
                     name="number"
+                    className="w-full px-4 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
                     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     placeholder="Phone"
@@ -68,9 +75,15 @@ export const ContactForm = () => {
                     value={contact.number}
                     onChange={handleChange}
                 />
-            </label>
-
-            <button type="submit">Add contact</button>
+            </div>
+            <div className='flex justify-end'>
+                <button
+                    type="submit"
+                    className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+                >
+                    Add contact
+                </button>
+            </div>
         </form>
     );
 };

@@ -8,19 +8,20 @@ const ContactsList = () => {
 
     const getVisibleContact = () => {
         return contacts.filter(contact =>
-            contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
+            contact.name.toLowerCase().includes(filter.toLowerCase())
         );
     };
 
     const visibleContacts = getVisibleContact();
     return (
-        <div >
-            <ul>
+        <div>
+            <ul className="divide-y divide-gray-200 flex justify-center">
                 {visibleContacts.map(contact => (
-                    <li key={contact.id}>
-                        <span>{contact.name}</span>
-                        <span> : {contact.number}</span>
+                    <li key={contact.id} className="py-4 self-start">
+                        <span className="text-lg font-semibold">{contact.name}</span>
+                        <span className="text-gray-500"> : {contact.number}</span>
                         <button
+                            className="ml-2 px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300"
                             onClick={() => dispatch(deleteContact(contact.id))}
                         >
                             Delete
@@ -31,4 +32,5 @@ const ContactsList = () => {
         </div>
     );
 };
+
 export default ContactsList;

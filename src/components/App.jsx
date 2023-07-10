@@ -4,11 +4,8 @@ import { Filter } from 'components/Filter/Filter';
 
 export const App = () => {
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <div className='mx-auto'>
       <ContactForm />
-
-      <h2>Contacts</h2>
 
       <Filter />
 
